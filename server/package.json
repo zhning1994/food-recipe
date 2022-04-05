@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "server of food recepi app",
   "main": "server.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "nodemon server.js"
   },
   "author": "LOW ZHEN NING",
   "license": "ISC",
