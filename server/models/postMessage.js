@@ -24,3 +24,5 @@ const postSchema = mongoose.Schema({
 });
 
 const PostMessage = mongoose.model('PostRecipe', postSchema);
+
+export default PostMessage;
