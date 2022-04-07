@@ -1,11 +1,13 @@
-import './styles.css';
+import './Header.css';
+import React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import Button from '../../UI/Button.js';
 
 function Header() {
     return (
         <header className=''>
-            <img />
+            <img src='' alt='' />
             <div className=''>
                 <ul className=''>
                     <li className=''>Home</li>
@@ -18,7 +20,7 @@ function Header() {
                 <FontAwesomeIcon size='xl' icon={faMagnifyingGlass} />
             </div>
             <div>
-                Sign In
+                <Button>Sign In</Button>
             </div>
 
         </header>
