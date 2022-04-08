@@ -4,8 +4,7 @@
   justify-content: space-between;
   padding: 0.7rem;
   padding-right: 1rem;
-  background-color: #f9fad7;
-  height: 12vh;
+  height: 10.5vh;
 }
 
 .header__logo {
@@ -23,4 +22,7 @@
   list-style: none;
   font-weight: 500;
   cursor: pointer;
+  color: #f48c06;
+  font-size: 1.2rem;
+  font-family: "Montserrat", sans-serif;
 }
