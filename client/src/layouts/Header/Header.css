@@ -1,0 +1,26 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.7rem;
+  padding-right: 1rem;
+  background-color: #f9fad7;
+  height: 12vh;
+}
+
+.header__logo {
+  height: 120px;
+}
+
+.header__itemContainer {
+  width: 160%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header__item {
+  list-style: none;
+  font-weight: 500;
+  cursor: pointer;
+}

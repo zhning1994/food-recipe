@@ -1,6 +1,8 @@
 .btn {
   border: none;
   color: #fff;
+  height: 3rem;
+  width: 6rem;
   background-image: linear-gradient(
     to left,
     #dc2f02 0%,
