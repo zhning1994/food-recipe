@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import burger from '../../assets/form-burgerIcon.png';
 import './Form.css';
 function Form() {
+    const [postData, setPostData] = useState({
+        creator: '', title: '', type: '', description: '', tags: '', prepTime: 1, cookTime: 1, serving: 1, ingredient: [], method: '', imgURL: ''
+    });
     return (
         <div className='outlook'>
             <form className='form'>
@@ -10,9 +13,13 @@ function Form() {
                     <h3 className='form__formTitle'>Let's share yours recipe with us!</h3>
                 </div>
                 <hr className='form__divideLine' />
+                <label className='form__creator'>
+                    <span>Name</span>
+                    <input value={postData.creator} placeholder='Zhen Ning' type='text' name='creator' />
+                </label>
                 <label className='form__title'>
                     <span>Dish Name</span>
-                    <input placeholder='Aglio Olio' type='text' name='title' />
+                    <input value={postData.title} placeholder='Aglio Olio' type='text' name='title' />
                 </label>
                 <label className='form__type'>
                     <span>Type</span>
@@ -20,12 +27,12 @@ function Form() {
                 </label>
                 <label className='form__description'>
                     <span>Description</span>
-                    <textarea className='' placeholder='Some briefly description of this dish.' rows={8} name='description' />
+                    <textarea placeholder='Some briefly description of this dish.' rows={8} name='description' />
                 </label>
                 <div className='form__timeAndServing'>
                     <label className='form__time--prepTime'>
                         <span>Prepare Time (mins)</span>
-                        <input className='' type='number' defaultValue={1} name='prepTime' />
+                        <input type='number' defaultValue={1} name='prepTime' />
                     </label>
                     <label className='form__time--cookTime'>
                         <span>Cook Time (mins)</span>
@@ -42,7 +49,11 @@ function Form() {
                 </label>
                 <label className='form__methods'>
                     <span>Methods</span>
-                    <textarea className='' placeholder='Show us some steps how to make this.' rows={8} name='methods' />
+                    <textarea placeholder='Show us some steps how to make this.' rows={8} name='methods' />
+                </label>
+                <label className='form__img'>
+                    <span>Food Pics</span>
+                    <input type='file' name='imgURL' />
                 </label>
             </form>
         </div>

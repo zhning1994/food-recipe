@@ -52,7 +52,9 @@ input[type="number"] {
 .form__type,
 .form__description,
 .form__ingredient,
-.form__methods {
+.form__methods,
+.form__creator,
+.form__img {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -63,7 +65,9 @@ input[type="number"] {
 .form__type span,
 .form__description span,
 .form__ingredient span,
-.form__methods span {
+.form__methods span,
+.form__creator span,
+.form__img span {
   margin-bottom: 0.5rem;
   display: block;
   color: #6a040f;
@@ -73,7 +77,8 @@ input[type="number"] {
 
 .form__title input,
 .form__type input,
-.form__ingredient input {
+.form__ingredient input,
+.form__creator input {
   display: block;
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
@@ -92,7 +97,8 @@ input[type="number"] {
 .form__time--prepTime input:focus,
 .form__time--cookTime input:focus,
 .form__ingredient input:focus,
-.form__methods textarea:focus {
+.form__methods textarea:focus,
+.form__creator input:focus {
   outline: solid #ffba08 3px;
   border: none;
   box-shadow: none;
