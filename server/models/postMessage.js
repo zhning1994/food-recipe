@@ -15,6 +15,14 @@ const postSchema = mongoose.Schema({
         type: Number,
         default: 0
     },
+    prepTime: {
+        type: Number,
+        default: 1
+    },
+    cookTime: {
+        type: Number,
+        default: 1
+    },
     ingredients: [String],
     methods: [String],
     createAt: {

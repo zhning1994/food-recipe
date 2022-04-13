@@ -1,0 +1,144 @@
+.outlook {
+  background-color: #ffb90810;
+  padding-top: 2rem;
+}
+.form__header {
+  display: flex;
+}
+
+.form {
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border: 1px solid #ffba08;
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+.form__headerImg {
+  height: 70px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.form__formTitle {
+  font-family: "Ariel", sans-serif !important;
+  font-size: 1.5rem;
+  color: #6a040f;
+}
+
+.form__divideLine {
+  min-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid #ffba08;
+  margin-top: 0.5rem;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.form__title,
+.form__type,
+.form__description,
+.form__ingredient,
+.form__methods {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 1rem;
+}
+
+.form__title span,
+.form__type span,
+.form__description span,
+.form__ingredient span,
+.form__methods span {
+  margin-bottom: 0.5rem;
+  display: block;
+  color: #6a040f;
+  font-size: 1.2rem;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.form__title input,
+.form__type input,
+.form__ingredient input {
+  display: block;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  min-width: 980px;
+  border-radius: 10px;
+  height: 2rem;
+  outline-style: none;
+  box-shadow: 3px 2px 6px 0 #cecece;
+  border: none;
+}
+
+.form__title input:focus,
+.form__type input:focus,
+.form__description textarea:focus,
+.form__time--prepTime input:focus,
+.form__time--cookTime input:focus,
+.form__ingredient input:focus,
+.form__methods textarea:focus {
+  outline: solid #ffba08 3px;
+  border: none;
+  box-shadow: none;
+}
+
+.form__description textarea,
+.form__methods textarea {
+  display: block;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  min-width: 980px;
+  border-radius: 10px;
+  outline-style: none;
+  box-shadow: 3px 2px 6px 0 #cecece;
+  border: none;
+  height: 100%;
+  resize: none;
+}
+
+.form__timeAndServing {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.form__time--prepTime span,
+.form__time--cookTime span,
+.form__serving {
+  color: #6a040f;
+  font-size: 1.2rem;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.form__time--prepTime input,
+.form__time--cookTime input,
+.form__serving input {
+  text-align: center;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 10px;
+  height: 2rem;
+  outline-style: none;
+  box-shadow: 3px 2px 6px 0 #cecece;
+  border: none;
+  width: 30px;
+  margin-left: 1rem;
+}

@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 
 function Posts() {
     const posts = useSelector((state) => state.posts);
+    console.log(posts);
     return (
         <div>Posts</div>
     )
