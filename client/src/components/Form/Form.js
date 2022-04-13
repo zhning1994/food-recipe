@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import burger from '../../assets/form-burgerIcon.png';
-import FileBase from 'react-file-base64';
+import FileBase64 from 'react-file-base64';
 import './Form.css';
 function Form() {
     const [postData, setPostData] = useState({
