@@ -1,5 +1,5 @@
 .outlook {
-  background-color: #ffb90810;
+  background-color: #ffb9082a;
   padding-top: 2rem;
 }
 .form__header {
@@ -13,7 +13,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  border: 1px solid #ffba08;
+  box-shadow: 7px 7px 10px #cbced1, -7px -7px 10px white;
   padding: 1rem;
   border-radius: 10px;
 }
@@ -147,4 +147,42 @@ input[type="number"] {
   border: none;
   width: 30px;
   margin-left: 1rem;
+}
+
+.form__btn {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin: 1rem auto;
+}
+
+.form__submitBtn,
+.form__clearBtn {
+  text-align: center;
+  background-color: #f48c06;
+  border: solid;
+  border-color: #f48c06;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  padding: 0.8rem;
+  border-radius: 35px;
+  font-size: 1rem;
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  cursor: pointer;
+  width: 100px;
+}
+
+.form__clearBtn {
+  background-color: #fff;
+  color: #f48c06;
+}
+
+.form__submitBtn span,
+.form__clearBtn span {
+  margin-left: auto;
+  margin-right: auto;
 }

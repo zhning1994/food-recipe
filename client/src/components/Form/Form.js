@@ -1,14 +1,23 @@
 import React, { useState } from 'react';
 import burger from '../../assets/form-burgerIcon.png';
-import { useForm } from 'react-hook-form';
+import FileBase64 from 'react-file-base64';
 import './Form.css';
+
 function Form() {
     const [postData, setPostData] = useState({
         creator: '', title: '', type: '', description: '', tags: '', prepTime: 1, cookTime: 1, serving: 1, ingredient: [], method: '', imgURL: ''
     });
+
+    const handleSubmit = () => {
+
+    };
+
+    const clear = () => {
+
+    }
     return (
         <div className='outlook'>
-            <form className='form'>
+            <form className='form' onSubmit={handleSubmit}>
                 <div className='form__header'>
                     <img className='form__headerImg' src={burger} alt='burger-icon' />
                     <h3 className='form__formTitle'>Let's share yours recipe with us!</h3>
@@ -56,6 +65,13 @@ function Form() {
                     <span>Food Pics</span>
                     <input type='file' name='imgURL' />
                 </label>
+                <div>
+                    <FileBase64 type='file' multiple={false} onDone={({ base64 }) => setPostData({ ...postData, imgURL: base64 })} />
+                </div>
+                <div className='form__btn'>
+                    <button className='form__submitBtn' type='submit'><span>Create</span></button>
+                    <button className='form__clearBtn' onClick={clear}><span>Clear</span></button>
+                </div>
             </form>
         </div>
     )
