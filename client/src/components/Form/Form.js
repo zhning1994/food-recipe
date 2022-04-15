@@ -4,6 +4,7 @@ import FileBase64 from 'react-file-base64';
 import './Form.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import { v4 as uuidv4 } from 'uuid';
 
 function Form() {
     const [postData, setPostData] = useState({
@@ -64,11 +65,12 @@ function Form() {
                 <label className='form__ingredient'>
                     <span>Ingredients</span>
                     <div className='form__ingredientBox'>
-                        <input value={ingredientVal} onChange={(e) => setIngredientVal(e.target.value)} placeholder='1/4 onions' type='text' name='ingredients' />
+                        <input value={ingredientVal} onChange={(e) => setIngredientVal(e.target.value)} placeholder='key in your ingredient here and click insert button besides' type='text' name='ingredients' />
                         <FontAwesomeIcon className='form__addIcon' size='xl' onClick={addIngredientHandler} icon={faPlus} />
                         <div>
                             {postData.ingredient.map((ing) => {
-                                return (<p className=''>{ing}</p>)
+                                let newId = uuidv4();
+                                return (<p className='' key={newId}>{ing}</p>)
                             })}
                         </div>
                     </div>
