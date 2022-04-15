@@ -91,6 +91,30 @@ input[type="number"] {
   border: none;
 }
 
+.form__ingredient input {
+  display: inline-block;
+  min-width: 750px;
+}
+
+.form__ingredientBox {
+  display: flex;
+  align-items: center;
+}
+
+.form__addIcon {
+  display: inline;
+  background-color: #fff;
+  color: #1e7f06;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  padding: 0.5rem;
+  margin-left: 1.5rem;
+  cursor: pointer;
+  box-shadow: 7px 7px 8px #cbced1, -7px -7px 8px white;
+  background-color: #ffb90815;
+}
+
 .form__title input:focus,
 .form__type input:focus,
 .form__description textarea:focus,

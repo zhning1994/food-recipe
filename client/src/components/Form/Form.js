@@ -2,11 +2,14 @@ import React, { useState } from 'react';
 import burger from '../../assets/form-burgerIcon.png';
 import FileBase64 from 'react-file-base64';
 import './Form.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
 
 function Form() {
     const [postData, setPostData] = useState({
         creator: '', title: '', type: '', description: '', tags: '', prepTime: 1, cookTime: 1, serving: 1, ingredient: [], method: '', imgURL: ''
     });
+    const [ingredientVal, setIngredientVal] = useState('');
 
     const handleSubmit = () => {
 
@@ -15,6 +18,11 @@ function Form() {
     const clear = () => {
 
     }
+
+    const addIngredientHandler = () => {
+
+    };
+
     return (
         <div className='outlook'>
             <form className='form' onSubmit={handleSubmit}>
@@ -55,7 +63,15 @@ function Form() {
                 </div>
                 <label className='form__ingredient'>
                     <span>Ingredients</span>
-                    <input value={postData.serving} onChange={(e) => setPostData({ ...postData, serving: e.target.value })} placeholder='1/4 onions' type='text' name='ingredients' />
+                    <div className='form__ingredientBox'>
+                        <input value={ingredientVal} onChange={(e) => setIngredientVal(e.target.value)} placeholder='1/4 onions' type='text' name='ingredients' />
+                        <FontAwesomeIcon className='form__addIcon' size='xl' onClick={addIngredientHandler} icon={faPlus} />
+                        <div>
+                            {postData.ingredient.map((ing) => {
+                                return (<p className=''>{ing}</p>)
+                            })}
+                        </div>
+                    </div>
                 </label>
                 <label className='form__methods'>
                     <span>Methods</span>
