@@ -8,7 +8,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 function Form() {
     const [postData, setPostData] = useState({
-        creator: '', title: '', type: '', description: '', tags: '', prepTime: 1, cookTime: 1, serving: 1, ingredient: ['apple', "orange"], method: '', imgURL: ''
+        creator: '', title: '', type: '', description: '', tags: '', prepTime: 1, cookTime: 1, serving: 1, ingredient: [], method: '', imgURL: ''
     });
     const [ingredientVal, setIngredientVal] = useState('');
 
@@ -21,9 +21,14 @@ function Form() {
     }
 
     const addIngredientHandler = () => {
+        if (ingredientVal.length === 0) return;
         setPostData(postData => ({ ...postData, ingredient: postData.ingredient.concat(ingredientVal) }));
         setIngredientVal('');
     };
+
+    const removeIngredientHandler = (itemRemove) => (setPostData(postData => ({ ...postData, ingredient: postData.ingredient.filter((item) => item !== itemRemove) })))
+
+
 
     return (
         <div className='outlook'>
@@ -59,23 +64,24 @@ function Form() {
                         <input value={postData.cookTime} onChange={(e) => setPostData({ ...postData, cookTime: e.target.value })} type='number' name='cookTime' />
                     </label>
                     <label className='form__serving'>
-                        <span>Serving</span>
+                        <span>Serving(s)</span>
                         <input value={postData.serving} onChange={(e) => setPostData({ ...postData, serving: e.target.value })} type='number' name='servings' />
                     </label>
                 </div>
                 <label className='form__ingredient'>
                     <span>Ingredients</span>
                     <div className='form__ingredientBox'>
-                        <input value={ingredientVal} onChange={(e) => setIngredientVal(e.target.value)} placeholder='Key in your ingredient at here and click insert button besides. Click the ingredient item below if you want to delete it.' type='text' name='ingredients' />
+                        <input value={ingredientVal} onChange={(e) => setIngredientVal(e.target.value)} placeholder='Key in your ingredient one by one at here and click insert button besides. Click the ingredient item below if you want to delete it.' type='text' name='ingredients' />
                         <FontAwesomeIcon className='form__addIcon' size='xl' onClick={addIngredientHandler} icon={faPlus} />
                     </div>
-                    <ul className='form__ingredientList'>
+                    {postData.ingredient.length ? <ul className='form__ingredientList'>
                         {postData.ingredient.map((ing) => {
                             let newId = uuidv4();
-                            return (<li key={newId}><FontAwesomeIcon className='form__ingredientIcon' icon={faAppleWhole
+                            return (<li onClick={() => removeIngredientHandler(ing)
+                            } key={newId}><FontAwesomeIcon className='form__ingredientIcon' icon={faAppleWhole
                             } />{ing}</li>)
                         })}
-                    </ul>
+                    </ul> : null}
                 </label>
                 <label className='form__methods'>
                     <span>Methods</span>
