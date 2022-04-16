@@ -93,7 +93,7 @@ input[type="number"] {
 
 .form__ingredient input {
   display: inline-block;
-  min-width: 750px;
+  min-width: 890px;
 }
 
 .form__ingredientBox {
@@ -103,7 +103,6 @@ input[type="number"] {
 
 .form__addIcon {
   display: inline;
-  background-color: #fff;
   color: #1e7f06;
   height: 40px;
   width: 40px;
@@ -113,6 +112,45 @@ input[type="number"] {
   cursor: pointer;
   box-shadow: 7px 7px 8px #cbced1, -7px -7px 8px white;
   background-color: #ffb90815;
+  transition: all 0.1s ease-in-out;
+}
+
+.form__addIcon:active {
+  box-shadow: none;
+}
+
+.form__ingredientList {
+  background-color: #fff;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  min-width: 980px;
+  border-radius: 10px;
+  outline-style: none;
+  box-shadow: 3px 2px 6px 0 #cecece;
+  border: none;
+}
+
+.form__ingredientList li {
+  text-align: left;
+  font-family: "Montserrat", sans-serif;
+  padding-left: 1rem;
+  margin-top: 0.7rem;
+  margin-bottom: 0.7rem;
+  list-style: none;
+  cursor: pointer;
+  transition: all 0.1s ease;
+  font-size: 1.2rem;
+}
+
+.form__ingredientIcon {
+  color: #1e7f06;
+  padding-right: 1rem;
+}
+
+.form__ingredientList li:hover {
+  color: #d00000;
+  font-weight: bold;
 }
 
 .form__title input:focus,
