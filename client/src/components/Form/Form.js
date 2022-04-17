@@ -5,15 +5,19 @@ import './Form.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faAppleWhole } from '@fortawesome/free-solid-svg-icons';
 import { v4 as uuidv4 } from 'uuid';
+import { useDispatch } from 'react-redux';
+import { createPost } from '../../api/axios.js';
 
 function Form() {
     const [postData, setPostData] = useState({
         creator: '', title: '', type: '', description: '', tags: '', prepTime: 1, cookTime: 1, serving: 1, ingredient: [], method: '', imgURL: ''
     });
     const [ingredientVal, setIngredientVal] = useState('');
+    const dispatch = useDispatch();
 
-    const handleSubmit = () => {
-
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        dispatch(createPost(postData));
     };
 
     const clear = () => {
@@ -49,6 +53,10 @@ function Form() {
                 <label className='form__type'>
                     <span>Type</span>
                     <input value={postData.type} onChange={(e) => setPostData({ ...postData, type: e.target.value })} placeholder='ITALIAN SPICY PASTA' type='text' name='type' />
+                </label>
+                <label className='form__tags'>
+                    <span>Hashtags</span>
+                    <input value={postData.tags} onChange={(e) => setPostData({ ...postData, tags: e.target.value })} placeholder='italian,spicy...' type='text' name='tags' />
                 </label>
                 <label className='form__description'>
                     <span>Description</span>
@@ -87,10 +95,10 @@ function Form() {
                     <span>Methods</span>
                     <textarea value={postData.method} onChange={(e) => setPostData({ ...postData, method: e.target.value })} placeholder='Show us some steps how to make this.' rows={8} name='methods' />
                 </label>
-                <label className='form__img'>
+                {/* <label className='form__img'>
                     <span>Food Pics</span>
                     <input type='file' name='imgURL' />
-                </label>
+                </label> */}
                 <div>
                     <FileBase64 type='file' multiple={false} onDone={({ base64 }) => setPostData({ ...postData, imgURL: base64 })} />
                 </div>
