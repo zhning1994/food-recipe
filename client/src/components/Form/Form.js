@@ -6,14 +6,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faAppleWhole } from '@fortawesome/free-solid-svg-icons';
 import { v4 as uuidv4 } from 'uuid';
 import { useDispatch } from 'react-redux';
-import { createPost } from '../../api/axios.js';
+import { createPost } from '../../actions/posts.js';
 
 function Form() {
+    const dispatch = useDispatch();
     const [postData, setPostData] = useState({
-        creator: '', title: '', type: '', description: '', tags: '', prepTime: 1, cookTime: 1, serving: 1, ingredient: [], method: '', imgURL: ''
+        creator: '', title: '', type: '', description: '', tags: '', prepTime: 1, cookTime: 1, serving: 1, ingredients: [], method: '', imgURL: ''
     });
     const [ingredientVal, setIngredientVal] = useState('');
-    const dispatch = useDispatch();
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -26,11 +26,11 @@ function Form() {
 
     const addIngredientHandler = () => {
         if (ingredientVal.length === 0) return;
-        setPostData(postData => ({ ...postData, ingredient: postData.ingredient.concat(ingredientVal) }));
+        setPostData(postData => ({ ...postData, ingredients: postData.ingredients.concat(ingredientVal) }));
         setIngredientVal('');
     };
 
-    const removeIngredientHandler = (itemRemove) => (setPostData(postData => ({ ...postData, ingredient: postData.ingredient.filter((item) => item !== itemRemove) })))
+    const removeIngredientHandler = (itemRemove) => (setPostData(postData => ({ ...postData, ingredients: postData.ingredients.filter((item) => item !== itemRemove) })))
 
 
 
@@ -82,8 +82,8 @@ function Form() {
                         <input value={ingredientVal} onChange={(e) => setIngredientVal(e.target.value)} placeholder='Key in your ingredient one by one at here and click insert button besides. Click the ingredient item below if you want to delete it.' type='text' name='ingredients' />
                         <FontAwesomeIcon className='form__addIcon' size='xl' onClick={addIngredientHandler} icon={faPlus} />
                     </div>
-                    {postData.ingredient.length ? <ul className='form__ingredientList'>
-                        {postData.ingredient.map((ing) => {
+                    {postData.ingredients.length ? <ul name='ingredients' className='form__ingredientList'>
+                        {postData.ingredients.map((ing) => {
                             let newId = uuidv4();
                             return (<li onClick={() => removeIngredientHandler(ing)
                             } key={newId}><FontAwesomeIcon className='form__ingredientIcon' icon={faAppleWhole
