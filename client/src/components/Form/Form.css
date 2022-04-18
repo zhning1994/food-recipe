@@ -55,7 +55,8 @@ input[type="number"] {
 .form__methods,
 .form__creator,
 .form__img,
-.form__tags {
+.form__tags,
+.form__pics {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -69,7 +70,8 @@ input[type="number"] {
 .form__methods span,
 .form__creator span,
 .form__img span,
-.form__tags span {
+.form__tags span,
+.form__pics span {
   margin-bottom: 0.5rem;
   display: block;
   color: #6a040f;

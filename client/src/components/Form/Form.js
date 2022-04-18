@@ -99,7 +99,8 @@ function Form() {
                     <span>Food Pics</span>
                     <input type='file' name='imgURL' />
                 </label> */}
-                <div>
+                <div className='form__pics'>
+                    <span>Dish Pics</span>
                     <FileBase64 type='file' multiple={false} onDone={({ base64 }) => setPostData({ ...postData, imgURL: base64 })} />
                 </div>
                 <div className='form__btn'>
