@@ -144,11 +144,13 @@
 .post__likeBtn {
   color: #219ebc;
   padding-right: 0.5rem;
+  cursor: pointer;
 }
 
 .post__deleteBtn {
   color: #ec1616;
   padding-right: 0.5rem;
+  cursor: pointer;
 }
 
 .post__like {
