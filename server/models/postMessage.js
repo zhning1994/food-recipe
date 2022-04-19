@@ -23,8 +23,10 @@ const postSchema = mongoose.Schema({
         type: Number,
         default: 1
     },
-    ingredients: [String],
-    methods: [String],
+    ingredients: {
+        type: [String]
+    },
+    methods: String,
     createAt: {
         type: Date,
         default: new Date()
