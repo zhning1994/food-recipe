@@ -16,6 +16,10 @@ function Form({ currentId, setCurrentId }) {
     });
     const [ingredientVal, setIngredientVal] = useState('');
 
+    useEffect(() => {
+        if (post) setPostData(post);
+    }, [post])
+
     const handleSubmit = (e) => {
         e.preventDefault();
         if (currentId) {
