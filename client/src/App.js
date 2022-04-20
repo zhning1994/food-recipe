@@ -1,5 +1,5 @@
 import './App.css';
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Header from './layouts/Header/Header';
 import Feature from './layouts/Features/Feature';
 import { useDispatch } from 'react-redux';
@@ -9,6 +9,7 @@ import Form from './components/Form/Form.js';
 
 
 function App() {
+  const [currentId, setCurrentId] = useState(null);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -19,8 +20,8 @@ function App() {
     <div className="App">
       <Header />
       <Feature />
-      <Posts />
-      <Form />
+      <Posts setCurrentId={setCurrentId} />
+      <Form currentId={currentId} setCurrentId={setCurrentId} />
     </div>
   );
 }

@@ -6,9 +6,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faAppleWhole } from '@fortawesome/free-solid-svg-icons';
 import { v4 as uuidv4 } from 'uuid';
 import { useDispatch } from 'react-redux';
-import { createPost } from '../../actions/posts.js';
+import { createPost, updatePost } from '../../actions/posts.js';
 
-function Form() {
+function Form({ currentId, setCurrentId }) {
     const dispatch = useDispatch();
     const [postData, setPostData] = useState({
         creator: '', title: '', type: '', description: '', tags: '', prepTime: 1, cookTime: 1, serving: 1, ingredients: [], method: '', imgURL: ''
@@ -17,7 +17,11 @@ function Form() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        dispatch(createPost(postData));
+        if (currentId) {
+            dispatch(updatePost(currentId, postData));
+        } else {
+            dispatch(createPost(postData));
+        }
     };
 
     const clear = () => {

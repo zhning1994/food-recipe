@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEllipsis, faThumbsUp, faTrashCan } from '@fortawesome/free-solid-svg-icons';
 import './Post.css';
 
-function Post({ post }) {
+function Post({ post, setCurrentId }) {
     const totalTime = post.prepTime + post.cookTime;
     return (
         <div className='post__card'>
@@ -17,7 +17,7 @@ function Post({ post }) {
                 {/* <p>{moment(post.createAt).fromNow()}</p> */}
             </div>
             <div className='post__expand'>
-                <button className='post__expandBtn' onClick={() => { }}><FontAwesomeIcon className='post__expandBtnIcon' size='xl' icon={faEllipsis} /></button>
+                <button className='post__expandBtn' onClick={() => setCurrentId(post._id)}><FontAwesomeIcon className='post__expandBtnIcon' size='xl' icon={faEllipsis} /></button>
                 {/* <FontAwesomeIcon size='xl' icon={faEllipsis} /> */}
             </div>
             <div className='post__info'>

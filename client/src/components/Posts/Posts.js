@@ -3,7 +3,7 @@ import Post from './Post/Post.js';
 import { useSelector } from 'react-redux';
 import './Posts.css';
 
-function Posts() {
+function Posts({ setCurrentId }) {
     const posts = useSelector((state) => state.posts);
     return (
         <>
@@ -11,7 +11,7 @@ function Posts() {
             <div className='post__cardContainer'>
                 {posts.map((post => (
                     <div key={post._id}>
-                        <Post post={post} />
+                        <Post setCurrentId={setCurrentId} post={post} />
                     </div>
                 )))}
             </div>
