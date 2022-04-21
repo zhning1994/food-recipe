@@ -9,12 +9,12 @@ import Form from './components/Form/Form.js';
 
 
 function App() {
-  const [currentId, setCurrentId] = useState(null);
+  const [currentId, setCurrentId] = useState({ id: 0 });
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getPosts());
-  }, [dispatch]);
+  }, [currentId, dispatch]);
 
   return (
     <div className="App">

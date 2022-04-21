@@ -9,15 +9,16 @@ import { useDispatch, useSelector } from 'react-redux';
 import { createPost, updatePost } from '../../actions/posts.js';
 
 function Form({ currentId, setCurrentId }) {
-    const post = useSelector((state) => currentId ? state.posts.find((p) => p._id === currentId) : null);
+    const post = useSelector((state) => currentId.id !== 0 ? state.posts.find((p) => p._id === currentId.id) : null);
     const dispatch = useDispatch();
     const [postData, setPostData] = useState({
         creator: '', title: '', type: '', description: '', tags: '', prepTime: 1, cookTime: 1, serving: 1, ingredients: [], method: '', imgURL: ''
     });
-    const [ingredientVal, setIngredientVal] = useState('');
+    const [ingredientVal, setIngredientVal] = useState('0');
 
     useEffect(() => {
-        if (post) setPostData(post);
+        if (post) setPostData((prevState) => ({ ...prevState, ...post }));
+        console.log(postData);
     }, [post])
 
     const handleSubmit = (e) => {
@@ -27,10 +28,15 @@ function Form({ currentId, setCurrentId }) {
         } else {
             dispatch(createPost(postData));
         }
+
+        clear();
     };
 
     const clear = () => {
-
+        setCurrentId(null);
+        setPostData({
+            creator: '', title: '', type: '', description: '', tags: '', prepTime: 1, cookTime: 1, serving: 1, ingredients: [], method: '', imgURL: ''
+        })
     }
 
     const addIngredientHandler = () => {
@@ -113,7 +119,7 @@ function Form({ currentId, setCurrentId }) {
                     <FileBase64 type='file' multiple={false} onDone={({ base64 }) => setPostData({ ...postData, imgURL: base64 })} />
                 </div>
                 <div className='form__btn'>
-                    <button className='form__submitBtn' type='submit'><span>Create</span></button>
+                    <button className='form__submitBtn' type='submit'>{currentId ? <span>Submit</span> : <span>Create</span>}</button>
                     <button className='form__clearBtn' onClick={clear}><span>Clear</span></button>
                 </div>
             </form>

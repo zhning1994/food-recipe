@@ -17,7 +17,7 @@ function Post({ post, setCurrentId }) {
                 {/* <p>{moment(post.createAt).fromNow()}</p> */}
             </div>
             <div className='post__expand'>
-                <button className='post__expandBtn' onClick={() => setCurrentId(post._id)}><FontAwesomeIcon className='post__expandBtnIcon' size='xl' icon={faEllipsis} /></button>
+                <button className='post__expandBtn' onClick={() => setCurrentId((prevState) => ({ ...prevState, id: post._id }))}><FontAwesomeIcon className='post__expandBtnIcon' size='xl' icon={faEllipsis} /></button>
                 {/* <FontAwesomeIcon size='xl' icon={faEllipsis} /> */}
             </div>
             <div className='post__info'>
