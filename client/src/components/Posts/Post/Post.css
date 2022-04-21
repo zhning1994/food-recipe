@@ -156,6 +156,7 @@
 
 .post__like {
   margin-right: 1rem;
+  cursor: pointer;
 }
 
 .post__like span {
@@ -164,6 +165,7 @@
 
 .post__delete {
   margin-left: 1rem;
+  cursor: pointer;
 }
 
 input:-webkit-autofill,

@@ -3,9 +3,12 @@ import moment from 'moment';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEllipsis, faThumbsUp, faTrashCan } from '@fortawesome/free-solid-svg-icons';
 import './Post.css';
+import { useDispatch } from 'react-redux';
+import { deletePost } from '../../../actions/posts.js';
 
 function Post({ post, setCurrentId }) {
     const totalTime = post.prepTime + post.cookTime;
+    const dispatch = useDispatch();
     return (
         <div className='post__card'>
             <img className='post__cardImg' src={post.imgURL} alt='recipe pic' />
@@ -36,7 +39,7 @@ function Post({ post, setCurrentId }) {
                     <span>Like</span>
                     {post.likeCount}
                 </button>
-                <button className='post__delete'>
+                <button onClick={() => dispatch(deletePost(post._id))} className='post__delete'>
                     <FontAwesomeIcon className='post__deleteBtn' icon={faTrashCan} />
                     <span>Delete</span>
                 </button>
