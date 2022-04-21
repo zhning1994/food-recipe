@@ -18,22 +18,21 @@ function Form({ currentId, setCurrentId }) {
 
     useEffect(() => {
         if (post) setPostData((prevState) => ({ ...prevState, ...post }));
-        console.log(postData);
     }, [post])
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (currentId) {
-            dispatch(updatePost(currentId, postData));
+        if (currentId.id !== 0) {
+            dispatch(updatePost(currentId.id, postData));
+            clear();
         } else {
             dispatch(createPost(postData));
+            clear();
         }
-
-        clear();
     };
 
     const clear = () => {
-        setCurrentId(null);
+        setCurrentId((prevState) => ({ ...prevState, id: 0 }))
         setPostData({
             creator: '', title: '', type: '', description: '', tags: '', prepTime: 1, cookTime: 1, serving: 1, ingredients: [], method: '', imgURL: ''
         })
@@ -119,7 +118,7 @@ function Form({ currentId, setCurrentId }) {
                     <FileBase64 type='file' multiple={false} onDone={({ base64 }) => setPostData({ ...postData, imgURL: base64 })} />
                 </div>
                 <div className='form__btn'>
-                    <button className='form__submitBtn' type='submit'>{currentId ? <span>Submit</span> : <span>Create</span>}</button>
+                    <button className='form__submitBtn' type='submit'>{currentId.id !== 0 ? <span>Submit</span> : <span>Create</span>}</button>
                     <button className='form__clearBtn' onClick={clear}><span>Clear</span></button>
                 </div>
             </form>
