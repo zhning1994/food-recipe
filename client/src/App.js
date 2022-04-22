@@ -1,27 +1,11 @@
 import './App.css';
-import React, { useState, useEffect } from "react";
-import Header from './layouts/Header/Header';
-import Feature from './layouts/Features/Feature';
-import { useDispatch } from 'react-redux';
-import { getPosts } from './actions/posts.js';
-import Posts from './components/Posts/Posts.js';
-import Form from './components/Form/Form.js';
-
+import React from "react";
+import Home from './pages/Home/Home';
 
 function App() {
-  const [currentId, setCurrentId] = useState({ id: 0 });
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(getPosts());
-  }, [currentId, dispatch]);
-
   return (
     <div className="App">
-      <Header />
-      <Feature />
-      <Posts setCurrentId={setCurrentId} />
-      <Form currentId={currentId} setCurrentId={setCurrentId} />
+      <Home />
     </div>
   );
 }
