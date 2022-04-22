@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEllipsis, faThumbsUp, faTrashCan } from '@fortawesome/free-solid-svg-icons';
 import './Post.css';
 import { useDispatch } from 'react-redux';
-import { deletePost } from '../../../actions/posts.js';
+import { deletePost, likePost } from '../../../actions/posts.js';
 
 function Post({ post, setCurrentId }) {
     const totalTime = post.prepTime + post.cookTime;
@@ -34,7 +34,7 @@ function Post({ post, setCurrentId }) {
                 </p>
             </div>
             <div className='post__bot'>
-                <button className='post__like'>
+                <button onClick={() => dispatch(likePost(post._id))} className='post__like'>
                     <FontAwesomeIcon className='post__likeBtn' icon={faThumbsUp} />
                     <span>Like</span>
                     {post.likeCount}
