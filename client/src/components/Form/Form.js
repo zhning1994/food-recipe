@@ -70,7 +70,7 @@ function Form({ currentId, setCurrentId }) {
                 </label>
                 <label className='form__tags'>
                     <span>Hashtags</span>
-                    <input value={postData.tags} onChange={(e) => setPostData({ ...postData, tags: e.target.value })} placeholder='italian,spicy...' type='text' name='tags' />
+                    <input value={postData.tags} onChange={(e) => setPostData({ ...postData, tags: e.target.value.split(',') })} placeholder='italian,spicy...' type='text' name='tags' />
                 </label>
                 <label className='form__description'>
                     <span>Description</span>
