@@ -6,7 +6,7 @@ import { faEyeSlash, faEye } from '@fortawesome/free-solid-svg-icons';
 
 
 function Auth() {
-    const isSignup = true;
+    const isSignup = false;
     const [pwd, setPwd] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const [email, setEmail] = useState('');
@@ -32,7 +32,7 @@ function Auth() {
                     <h6 className='auth__words'>{isSignup ? 'Join us to view and share more recipe!' : 'Welcome back! Please enter your details.'}</h6>
                     <div className='auth__subContainer'>
                         {isSignup && (
-                            <div>
+                            <div className='auth__name'>
                                 <label className='auth__firstN'>
                                     <span>First Name</span>
                                     <input onChange={e => setFirstName(e.target.value)} value={firstName} placeholder='Zhen Ning' type='text' name='firstName' required />
@@ -56,11 +56,11 @@ function Auth() {
                             </div>
                         </label>
                         {isSignup && (
-                            <label className='auth__confirmePassword'>
+                            <label className='auth__confirmPassword'>
                                 <span>Repeat Password</span>
                                 <div tabIndex="0">
                                     <input onChange={e => setConfirmPassword(e.target.value)} type={showConfirmPassword ? "text" : "password"} value={confirmPassword} name='confirmPassword' required />
-                                    <FontAwesomeIcon onClick={() => setShowConfirmPassword(prevState => !prevState)} className='auth__showpwd' icon={showPassword ? faEye : faEyeSlash} />
+                                    <FontAwesomeIcon onClick={() => setShowConfirmPassword(prevState => !prevState)} className='auth__showconfirmpwd' icon={showPassword ? faEye : faEyeSlash} />
                                 </div>
                             </label>
                         )}

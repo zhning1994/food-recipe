@@ -18,8 +18,8 @@
 }
 
 .auth__logo {
-  height: 170px;
-  width: 170px;
+  height: 150px;
+  width: 150px;
   cursor: pointer;
 }
 
@@ -35,8 +35,8 @@
   color: #023047;
   font-family: "Montserrat", sans-serif;
   font-weight: unset;
-  margin-top: 1rem;
-  margin-bottom: 1.5rem;
+  margin-top: 0.95rem;
+  margin-bottom: 0.95rem;
 }
 
 .auth__subContainer {
@@ -45,23 +45,34 @@
   margin-right: auto;
 }
 
-.auth__password {
+.auth__password,
+.auth__confirmPassword {
   position: relative;
 }
 
+.auth__name {
+  display: flex;
+  justify-content: space-between;
+  width: 365px;
+}
 .auth__email,
 .auth__password,
+.auth__confirmPassword,
 .auth__forget,
-.auth__createAcc {
+.auth__createAcc,
+.auth__firstN,
+.auth__LastN {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  margin-top: 1rem;
+  margin-top: 0.8rem;
 }
 
 .auth__email span,
-.auth__password span {
-  margin-bottom: 0.5rem;
+.auth__password span,
+.auth__confirmPassword span,
+.auth__firstN span,
+.auth__LastN span {
   display: block;
   color: #023047;
   font-size: 1rem;
@@ -70,10 +81,11 @@
 }
 
 .auth__email input,
-.auth__password div {
+.auth__password div,
+.auth__confirmPassword div {
   display: block;
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
+  margin-top: 0.4rem;
+  margin-bottom: 0.4rem;
   padding: 0.5rem 0.75rem;
   width: 100%;
   border-radius: 10px;
@@ -84,8 +96,26 @@
   transition: all 50ms ease-in-out;
 }
 
+.auth__firstN input,
+.auth__LastN input {
+  display: block;
+  margin-top: 0.4rem;
+  margin-bottom: 0.4rem;
+  padding: 0.5rem 0.75rem;
+  width: 80%;
+  border-radius: 10px;
+  height: 1.5rem;
+  outline-style: none;
+  box-shadow: 3px 2px 6px 0 #cecece;
+  border: none;
+  transition: all 50ms ease-in-out;
+}
+
 .auth__email input:focus,
-.auth__password div:focus-within {
+.auth__password div:focus-within,
+.auth__confirmPassword div:focus-within,
+.auth__firstN input:focus,
+.auth__LastN input:focus {
   outline: solid #ffba08 3px;
   border: none;
   box-shadow: none;
@@ -150,23 +180,27 @@
   color: #ffba08;
 }
 
-.auth__showpwd {
+.auth__showpwd,
+.auth__showconfirmpwd {
   position: absolute;
   right: -15px;
-  top: 45px;
+  top: 38px;
   color: #023047;
   cursor: pointer;
 }
 
-.auth__password div {
+.auth__password div,
+.auth__confirmPassword div {
   display: flex;
 }
 
-.auth__password input {
+.auth__password input,
+.auth__confirmPassword input {
   width: 300px;
   border: none;
 }
 
-.auth__password input:focus {
+.auth__password input:focus,
+.auth__confirmPassword input:focus {
   outline: none;
 }
