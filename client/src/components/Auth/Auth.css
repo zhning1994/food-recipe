@@ -45,6 +45,10 @@
   margin-right: auto;
 }
 
+.auth__password {
+  position: relative;
+}
+
 .auth__email,
 .auth__password,
 .auth__forget,
@@ -66,7 +70,7 @@
 }
 
 .auth__email input,
-.auth__password input {
+.auth__password div {
   display: block;
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
@@ -81,7 +85,7 @@
 }
 
 .auth__email input:focus,
-.auth__password input:focus {
+.auth__password div:focus-within {
   outline: solid #ffba08 3px;
   border: none;
   box-shadow: none;
@@ -144,4 +148,25 @@
 .auth__createAcc a:hover {
   font-size: 1.5rem;
   color: #ffba08;
+}
+
+.auth__showpwd {
+  position: absolute;
+  right: -15px;
+  top: 45px;
+  color: #023047;
+  cursor: pointer;
+}
+
+.auth__password div {
+  display: flex;
+}
+
+.auth__password input {
+  width: 300px;
+  border: none;
+}
+
+.auth__password input:focus {
+  outline: none;
 }
