@@ -121,7 +121,8 @@
   box-shadow: none;
 }
 
-.auth__login {
+.auth__login,
+.auth__google {
   border: none;
   background-color: #023047;
   color: #fff;
@@ -139,7 +140,21 @@
   font-weight: bold;
 }
 
-.auth__login:active {
+.auth__google {
+  display: flex;
+  background-color: #fb8500;
+  justify-content: center;
+  align-items: center;
+}
+
+.auth__google img {
+  width: 35px;
+  height: 35px;
+  margin-left: 1rem;
+}
+
+.auth__login:active,
+.auth__google:active {
   background-color: #219ebc;
 }
 

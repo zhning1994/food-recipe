@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import './Auth.css';
 import logo from '../../assets/logo1.svg';
+import google from '../../assets/google.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEyeSlash, faEye } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 import { GoogleLogin } from 'react-google-login';
-
 
 function Auth() {
     const [isSignup, setIsSignup] = useState(false);
@@ -28,6 +28,13 @@ function Auth() {
     const switchMode = () => {
         setIsSignup((prevIsSignup) => !prevIsSignup)
         setShowPassword((prevShowPassword) => !prevShowPassword)
+    };
+
+    const googleSuccess = () => {
+
+    };
+    const googleFailure = () => {
+        console.log("Google Sign in was unsuccessful. Try again leter.")
     };
 
     return (
@@ -72,17 +79,21 @@ function Auth() {
                                 </div>
                             </label>
                         )}
-                        <GoogleLogin
-                            clientId='GOOGLE ID'
-                            render={renderProps => (
-                                <button className=''
-                                    onClick={renderProps.onClick}
-                                    disabled={renderProps.disabled}>
-                                    Google Sign In
-                                </button>
-                            )}
-                        />
                         {isSignup ? (<button className='auth__login'>Sign Up</button>) : (<>
+                            <GoogleLogin
+                                clientId='GOOGLE ID'
+                                render={renderProps => (
+                                    <button className='auth__google'
+                                        onClick={renderProps.onClick}
+                                        disabled={renderProps.disabled}>
+                                        <span>Sign In With Google</span>
+                                        <img src={google} alt="Google" />
+                                    </button>
+                                )}
+                                onSuccess={googleSuccess}
+                                onFailure={googleFailure}
+                                cookiePolicy="single_host_origin"
+                            />
                             <button className='auth__login'>Log In</button>
                             <a href="/" rel="forgetPassword" className='auth__forget'>Forget password ?</a>
                             <div className='auth__createAcc'>
