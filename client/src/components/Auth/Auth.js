@@ -4,6 +4,7 @@ import logo from '../../assets/logo1.svg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEyeSlash, faEye } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
+import { GoogleLogin } from 'react-google-login';
 
 
 function Auth() {
@@ -71,6 +72,16 @@ function Auth() {
                                 </div>
                             </label>
                         )}
+                        <GoogleLogin
+                            clientId='GOOGLE ID'
+                            render={renderProps => (
+                                <button className=''
+                                    onClick={renderProps.onClick}
+                                    disabled={renderProps.disabled}>
+                                    Google Sign In
+                                </button>
+                            )}
+                        />
                         {isSignup ? (<button className='auth__login'>Sign Up</button>) : (<>
                             <button className='auth__login'>Log In</button>
                             <a href="/" rel="forgetPassword" className='auth__forget'>Forget password ?</a>
