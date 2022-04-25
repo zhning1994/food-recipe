@@ -3,10 +3,11 @@ import './Auth.css';
 import logo from '../../assets/logo1.svg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEyeSlash, faEye } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
 
 
 function Auth() {
-    const isSignup = false;
+    const [isSignup, setIsSignup] = useState(false);
     const [pwd, setPwd] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const [email, setEmail] = useState('');
@@ -22,12 +23,18 @@ function Auth() {
     const changeHandler = () => {
 
     }
+
+    const switchMode = () => {
+        setIsSignup((prevIsSignup) => !prevIsSignup)
+        setShowPassword((prevShowPassword) => !prevShowPassword)
+    };
+
     return (
         <div className='auth__container'>
             <div className='auth__deco'></div>
             <div className='auth__info'>
                 <form onSubmit={submitHandler} className='auth__form'>
-                    <img className='auth__logo' src={logo} alt='logo' />
+                    <Link to='/'><img component={Link} to="/" className='auth__logo' src={logo} alt='logo' /></Link>
                     <h5 className='auth__signInUP'>{isSignup ? 'Sign Up' : 'Sign In'}</h5>
                     <h6 className='auth__words'>{isSignup ? 'Join us to view and share more recipe!' : 'Welcome back! Please enter your details.'}</h6>
                     <div className='auth__subContainer'>
@@ -69,7 +76,7 @@ function Auth() {
                             <a href="/" rel="forgetPassword" className='auth__forget'>Forget password ?</a>
                             <div className='auth__createAcc'>
                                 {/* <span>New to Comfort Food ?</span> */}
-                                <a href="/" rel="createAccount">Create an account for free</a>
+                                <a onClick={switchMode} rel="createAccount">Create an account for free</a>
                             </div>
                         </>)}
                     </div>

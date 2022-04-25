@@ -166,6 +166,7 @@
   font-weight: bold;
   justify-content: center;
   transition: all 1s ease-in-out;
+  cursor: pointer;
 }
 
 .auth__createAcc a,
