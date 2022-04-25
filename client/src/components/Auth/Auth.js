@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEyeSlash, faEye } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 import { GoogleLogin } from 'react-google-login';
+import { useDispatch } from "react-redux";
 
 function Auth() {
     const [isSignup, setIsSignup] = useState(false);
@@ -16,6 +17,7 @@ function Auth() {
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
+    const dispatch = useDispatch();
 
     const submitHandler = () => {
 
@@ -30,9 +32,16 @@ function Auth() {
         setShowPassword((prevShowPassword) => !prevShowPassword)
     };
 
-    const googleSuccess = () => {
-
+    const googleSuccess = async (res) => {
+        const result = res?.profileObj;
+        const token = res?.tokenId;
+        try {
+            dispatch({ type: 'AUTH', data: { result, token } });
+        } catch (error) {
+            console.log(error)
+        }
     };
+
     const googleFailure = () => {
         console.log("Google Sign in was unsuccessful. Try again leter.")
     };
@@ -81,7 +90,7 @@ function Auth() {
                         )}
                         {isSignup ? (<button className='auth__login'>Sign Up</button>) : (<>
                             <GoogleLogin
-                                clientId='GOOGLE ID'
+                                clientId='135398771906-jrh87cdcabsedfjpd8fgvcg0pfjkan26.apps.googleusercontent.com'
                                 render={renderProps => (
                                     <button className='auth__google'
                                         onClick={renderProps.onClick}
