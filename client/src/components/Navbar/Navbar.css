@@ -1,0 +1,44 @@
+.navbar__container {
+  display: flex;
+  align-items: center;
+}
+
+.navbar__avatar {
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+  width: 210px;
+  border-radius: 30px;
+  transition: all 0.1s ease-in-out;
+}
+
+.navbar__subavatar {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.navbar__name {
+  font-size: 0.75rem;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #023047;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.navbar__btn {
+  border: none;
+  color: #fff;
+  height: 3rem;
+  width: 6rem;
+  background-image: linear-gradient(to left, #ffb703 0%, #fb8500 100%);
+  font-size: 1rem;
+  border-radius: 30px;
+  padding: 1rem;
+  font-family: Arial, Helvetica, sans-serif;
+  cursor: pointer;
+  margin-left: 3rem;
+}
+
+.navbar__avatar:hover {
+  background-color: #ffb80377;
+}
