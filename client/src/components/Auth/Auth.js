@@ -4,7 +4,7 @@ import logo from '../../assets/logo1.svg';
 import google from '../../assets/google.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEyeSlash, faEye } from '@fortawesome/free-solid-svg-icons';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { GoogleLogin } from 'react-google-login';
 import { useDispatch } from "react-redux";
 
@@ -18,6 +18,7 @@ function Auth() {
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const dispatch = useDispatch();
+    const history = useHistory();
 
     const submitHandler = () => {
 
@@ -37,13 +38,15 @@ function Auth() {
         const token = res?.tokenId;
         try {
             dispatch({ type: 'AUTH', data: { result, token } });
+            history.push('/');
         } catch (error) {
             console.log(error)
         }
     };
 
-    const googleFailure = () => {
-        console.log("Google Sign in was unsuccessful. Try again leter.")
+    const googleFailure = (error) => {
+        console.log(error);
+        console.log("Google Sign in was unsuccessful. Try again leter.");
     };
 
     return (
