@@ -5,6 +5,7 @@ import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import Button from '../../UI/Button.js';
 import logo from '../../assets/logo.png';
 import { Link } from 'react-router-dom';
+import Navbar from '../../components/Navbar/Navbar.js';
 
 function Header() {
     return (
@@ -21,10 +22,7 @@ function Header() {
             <div>
                 <FontAwesomeIcon size='xl' icon={faMagnifyingGlass} />
             </div>
-            <div>
-                <Link to='/auth'><Button>Sign In</Button></Link>
-            </div>
-
+            <Navbar />
         </header>
 
     )
