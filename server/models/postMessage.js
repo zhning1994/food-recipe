@@ -4,6 +4,7 @@ const postSchema = mongoose.Schema({
     type: String,
     title: String,
     description: String,
+    name: String,
     creator: String,
     tags: [String],
     imgURL: String,
@@ -13,7 +14,7 @@ const postSchema = mongoose.Schema({
     },
     likeCount: {
         type: Number,
-        default: 0
+        default: 0,
     },
     prepTime: {
         type: Number,
