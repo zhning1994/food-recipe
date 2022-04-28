@@ -12,9 +12,10 @@ function Form({ currentId, setCurrentId }) {
     const post = useSelector((state) => currentId.id !== 0 ? state.posts.find((p) => p._id === currentId.id) : null);
     const dispatch = useDispatch();
     const [postData, setPostData] = useState({
-        creator: '', title: '', type: '', description: '', tags: '', prepTime: 1, cookTime: 1, serving: 1, ingredients: [], method: '', imgURL: ''
+        title: '', type: '', description: '', tags: '', prepTime: 1, cookTime: 1, serving: 1, ingredients: [], method: '', imgURL: ''
     });
-    const [ingredientVal, setIngredientVal] = useState('0');
+    const [ingredientVal, setIngredientVal] = useState('');
+    const user = JSON.parse(localStorage.getItem('profile'));
 
     useEffect(() => {
         if (post) setPostData((prevState) => ({ ...prevState, ...post }));
@@ -23,18 +24,24 @@ function Form({ currentId, setCurrentId }) {
     const handleSubmit = (e) => {
         e.preventDefault();
         if (currentId.id !== 0) {
-            dispatch(updatePost(currentId.id, postData));
+            dispatch(updatePost(currentId.id, { ...postData, name: user?.result?.name }));
             clear();
         } else {
-            dispatch(createPost(postData));
+            dispatch(createPost({ ...postData, name: user?.result?.name }));
             clear();
         }
     };
 
+    // if (!user?.result?.name) {
+    //     return (
+    //         <h6>Please login first!</h6>
+    //     )
+    // }
+
     const clear = () => {
         setCurrentId((prevState) => ({ ...prevState, id: 0 }))
         setPostData({
-            creator: '', title: '', type: '', description: '', tags: '', prepTime: 1, cookTime: 1, serving: 1, ingredients: [], method: '', imgURL: ''
+            title: '', type: '', description: '', tags: '', prepTime: 1, cookTime: 1, serving: 1, ingredients: [], method: '', imgURL: ''
         })
     }
 
@@ -56,10 +63,6 @@ function Form({ currentId, setCurrentId }) {
                     <h3 className='form__formTitle'>Let's share yours recipe with us!</h3>
                 </div>
                 <hr className='form__divideLine' />
-                <label className='form__creator'>
-                    <span>Name</span>
-                    <input value={postData.creator} onChange={(e) => setPostData({ ...postData, creator: e.target.value })} placeholder='Zhen Ning' type='text' name='creator' required />
-                </label>
                 <label className='form__title'>
                     <span>Dish Name</span>
                     <input value={postData.title} onChange={(e) => setPostData({ ...postData, title: e.target.value })} placeholder='Aglio Olio' type='text' name='title' required />
